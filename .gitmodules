@@ -1,0 +1,3 @@
+[submodule "submodules/tyk-protobuf"]
+	path = submodules/tyk-protobuf
+	url = https://github.com/TykTechnologies/tyk-protobuf
