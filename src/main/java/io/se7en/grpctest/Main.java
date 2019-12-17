@@ -6,7 +6,7 @@ import java.util.Properties;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 
-public class Main {
+public final class Main {
   private static final Properties PROPERTIES = loadProperties();
 
   private static Properties loadProperties() {
