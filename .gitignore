@@ -116,4 +116,3 @@ buildNumber.properties
 # End of https://www.gitignore.io/api/java,maven,eclipse,code-java
 
 # Project-specific files
-api-gateway-test-keystore
