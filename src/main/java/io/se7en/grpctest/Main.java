@@ -16,8 +16,7 @@ public class Main {
   }
 
   public static void main(String[] args) throws InterruptedException, IOException {
-    int port = port();
-    Server server = buildServer(port);
+    Server server = buildServer(port());
     System.out.println("Server started!");
 
     server.awaitTermination();
