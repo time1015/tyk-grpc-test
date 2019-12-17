@@ -116,3 +116,4 @@ buildNumber.properties
 # End of https://www.gitignore.io/api/java,maven,eclipse,code-java
 
 # Project-specific files
+docker/images/grpc-test-server/grpc-server.jar
