@@ -6,7 +6,7 @@ import java.util.Properties;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 
-public class Main {
+public final class Main {
   private static final Properties PROPERTIES = loadProperties();
 
   private static Properties loadProperties() {
@@ -16,16 +16,19 @@ public class Main {
   }
 
   public static void main(String[] args) throws InterruptedException, IOException {
-    int port = port();
-
-    System.out.println("Starting server at port " + port + "...");
-    Server server = ServerBuilder.forPort(port).build().start();
+    Server server = buildServer(port());
     System.out.println("Server started!");
 
     server.awaitTermination();
   }
 
   private static int port() {
-    return Integer.parseInt(PROPERTIES.getProperty("port", "8090"));
+    int port = Integer.parseInt(PROPERTIES.getProperty("port", "8090"));
+    System.out.println("Using port " + port + "");
+    return port;
+  }
+
+  private static Server buildServer(int port) throws IOException {
+    return ServerBuilder.forPort(port).build().start();
   }
 }
