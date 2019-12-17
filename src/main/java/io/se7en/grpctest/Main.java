@@ -17,8 +17,6 @@ public class Main {
 
   public static void main(String[] args) throws InterruptedException, IOException {
     int port = port();
-
-    System.out.println("Starting server at port " + port + "...");
     Server server = ServerBuilder.forPort(port).build().start();
     System.out.println("Server started!");
 
@@ -26,6 +24,8 @@ public class Main {
   }
 
   private static int port() {
-    return Integer.parseInt(PROPERTIES.getProperty("port", "8090"));
+    int port = Integer.parseInt(PROPERTIES.getProperty("port", "8090"));
+    System.out.println("Using port " + port + "");
+    return port;
   }
 }
