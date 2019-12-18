@@ -29,6 +29,6 @@ public final class Main {
   }
 
   private static Server buildServer(int port) throws IOException {
-    return ServerBuilder.forPort(port).build().start();
+    return ServerBuilder.forPort(port).addService(new Dispatcher()).build().start();
   }
 }
