@@ -121,6 +121,10 @@
           <groupId>com.google.protobuf</groupId>
           <artifactId>protobuf-lite</artifactId>
         </exclusion>
+        <exclusion>
+          <groupId>io.grpc</groupId>
+          <artifactId>grpc-testing</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
   </dependencies>
