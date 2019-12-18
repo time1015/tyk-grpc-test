@@ -64,10 +64,14 @@
               "path": "/fire",
               "method_actions": {
                 "GET": {
-                  "action": "reply",
-                  "code": 200,
-                  "data": "Hit!",
-                  "headers": {}
+                  "action": "no_action"
+                }
+              }
+            },{
+              "path": "/anything",
+              "method_actions": {
+                "GET": {
+                  "action": "no_action"
                 }
               }
             }],
