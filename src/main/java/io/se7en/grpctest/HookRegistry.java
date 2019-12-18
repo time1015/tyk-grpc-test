@@ -1,6 +1,7 @@
 package io.se7en.grpctest;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
@@ -12,7 +13,12 @@ public final class HookRegistry {
   private HookRegistry() {}
 
   private static Map<String, UnaryOperator<Object>> getHooks() {
-    return Collections.emptyMap();
+    Map<String, UnaryOperator<Object>> hooks = new HashMap<>();
+
+    hooks.put("PreHook", new PreHook());
+    hooks.put("PostHook", new PostHook());
+
+    return Collections.unmodifiableMap(hooks);
   }
 
   public static Function<Object, Optional<Object>> getTransformer() {
