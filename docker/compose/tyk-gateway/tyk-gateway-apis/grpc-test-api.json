@@ -145,7 +145,7 @@
       "extractor_config": {}
     }
   },
-  "custom_middleware_bundle": "bundle.zip",
+  "custom_middleware_bundle": "grpc-test-api.zip",
   "cache_options": {
     "cache_timeout": 60,
     "enable_cache": true,
