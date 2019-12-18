@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>io.se7en.grpctest</groupId>
+  <groupId>com.pccw.tyk.grpctest</groupId>
   <artifactId>grpc-server</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
@@ -51,7 +51,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>io.se7en.grpctest.Main</mainClass>
+              <mainClass>com.pccw.tyk.grpctest.Main</mainClass>
             </manifest>
           </archive>
         </configuration>

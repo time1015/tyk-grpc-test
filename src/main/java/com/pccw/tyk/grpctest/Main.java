@@ -1,4 +1,4 @@
-package io.se7en.grpctest;
+package com.pccw.tyk.grpctest;
 
 import java.io.IOException;
 import java.util.Properties;

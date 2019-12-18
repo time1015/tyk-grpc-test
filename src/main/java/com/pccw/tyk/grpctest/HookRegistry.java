@@ -1,4 +1,4 @@
-package io.se7en.grpctest;
+package com.pccw.tyk.grpctest;
 
 import java.util.Collections;
 import java.util.HashMap;
