@@ -67,6 +67,13 @@
                   "action": "no_action"
                 }
               }
+            },{
+              "path": "/anything",
+              "method_actions": {
+                "GET": {
+                  "action": "no_action"
+                }
+              }
             }],
             "black_list": []
           },
