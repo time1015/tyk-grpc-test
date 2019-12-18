@@ -3,6 +3,9 @@
     "driver": "grpc",
     "pre": [{
         "name": "PreHook"
+    }],
+    "post": [{
+        "name": "PostHook"
     }]
   }
 }
