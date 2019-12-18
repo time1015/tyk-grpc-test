@@ -117,3 +117,4 @@ buildNumber.properties
 
 # Project-specific files
 docker/images/grpc-test-server/grpc-server.jar
+docker/compose/tyk-gateway/nginx-root/
