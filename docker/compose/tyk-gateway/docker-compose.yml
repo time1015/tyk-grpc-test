@@ -10,6 +10,7 @@ services:
       - "30100:8080"
     volumes:
       - "./tyk.conf:/opt/tyk-gateway/tyk.conf"
+      - "./nginx-root:/outside"
     environment:
       - "TYK_GW_SECRET=5830f19dee9b799d89719d2cd62baf09"
     restart: on-failure
