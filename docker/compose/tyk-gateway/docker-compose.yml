@@ -4,7 +4,7 @@ services:
     container_name: tyk-gateway
     image: tykio/tyk-gateway:v2.9.2
     depends_on:
-      - redis-for-tyk-gateway
+      - redis-server
     ports:
       - "30100:8080"
     volumes:
@@ -21,8 +21,8 @@ services:
       nofile:
         soft: 32000
         hard: 40000
-  redis-for-tyk-gateway:
-    container_name: redis-for-tyk-gateway
+  redis-server:
+    container_name: redis-server
     image: redis:5.0.7
     ports:
       - "30101:6379"
@@ -36,11 +36,13 @@ services:
       nofile:
         soft: 32000
         hard: 40000
-  grpc-for-tyk-gateway:
-    container_name: grpc-for-tyk-gateway
-    image: grpc-server:latest
+  bundle-server:
+    container_name: bundle-server
+    image: nginx:1.17.6
     ports:
-      - "30102:8090"
+      - "30103:80"
+    volumes:
+      - "./nginx-root:/usr/share/nginx/html:ro"
     restart: on-failure
     networks:
       - tyk
@@ -49,14 +51,14 @@ services:
       nofile:
         soft: 32000
         hard: 40000
-  nginx-for-tyk-gateway:
-    container_name: nginx-for-tyk-gateway
-    image: nginx:1.17.6
+  grpc-server:
+    container_name: grpc-server
+    image: java-8-runtime:latest
     ports:
-      - "30103:80"
-    volumes:
-      - "./nginx-root:/usr/share/nginx/html:ro"
+      - "30104:80"
     restart: on-failure
+    volumes:
+      - "./servers:/opt/java/jar"
     networks:
       - tyk
     ulimits:
