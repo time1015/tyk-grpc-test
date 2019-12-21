@@ -116,6 +116,5 @@ buildNumber.properties
 # End of https://www.gitignore.io/api/java,maven,eclipse,code-java
 
 # Project-specific files
-docker/images/grpc-test-server/grpc-server.jar
 docker/compose/tyk-gateway/nginx-root/
 docker/compose/tyk-gateway/servers/

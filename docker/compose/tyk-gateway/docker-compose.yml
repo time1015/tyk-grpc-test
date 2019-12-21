@@ -36,19 +36,6 @@ services:
       nofile:
         soft: 32000
         hard: 40000
-  grpc-for-tyk-gateway:
-    container_name: grpc-for-tyk-gateway
-    image: grpc-server:latest
-    ports:
-      - "30102:8090"
-    restart: on-failure
-    networks:
-      - tyk
-    ulimits:
-      nproc: 65535
-      nofile:
-        soft: 32000
-        hard: 40000
   nginx-for-tyk-gateway:
     container_name: nginx-for-tyk-gateway
     image: nginx:1.17.6
