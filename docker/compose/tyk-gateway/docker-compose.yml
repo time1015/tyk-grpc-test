@@ -64,6 +64,21 @@ services:
       nofile:
         soft: 32000
         hard: 40000
+  grpc-server:
+    container_name: grpc-server
+    image: java-8-runtime:latest
+    ports:
+      - "30104:80"
+    restart: on-failure
+    volumes:
+      - "./servers:/opt/java/jar"
+    networks:
+      - tyk
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 32000
+        hard: 40000
 volumes:
   redis_tyk_data:
 networks:
