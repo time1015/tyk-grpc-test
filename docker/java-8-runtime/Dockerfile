@@ -1,5 +1,7 @@
 FROM openjdk:8u232
 
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+
 # Set up JAR volume
 VOLUME /opt/java/jar
 
@@ -7,4 +9,4 @@ VOLUME /opt/java/jar
 WORKDIR /opt/java/jar
 
 # Run the server
-ENTRYPOINT ["java", "-jar"]
+ENTRYPOINT ["entrypoint.sh"]

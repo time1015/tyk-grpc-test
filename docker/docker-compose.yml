@@ -60,7 +60,9 @@ services:
     restart: on-failure
     volumes:
       - "./servers:/opt/java/jar"
-    command: "-Dport=80 grpc-server.jar"
+    environment:
+      - "port=80"
+    command: "grpc-server.jar"
     networks:
       - tyk
     ulimits:
