@@ -1,7 +1,7 @@
 {
-  "name": "gRPC Test API",
-  "slug": "grpc-test-api",
-  "api_id": "2",
+  "name": "gRPC Test API - Post",
+  "slug": "grpc-post",
+  "api_id": "1b",
   "org_id": "default",
   "use_keyless": true,
   "use_oauth2": false,
@@ -70,6 +70,13 @@
             },{
               "path": "/anything",
               "method_actions": {
+                "POST": {
+                  "action": "no_action"
+                }
+              }
+            },{
+              "path": "/anything",
+              "method_actions": {
                 "GET": {
                   "action": "no_action"
                 }
@@ -105,7 +112,7 @@
   },
   "proxy": {
     "preserve_host_header": false,
-    "listen_path": "/grpc/",
+    "listen_path": "/grpc-post/",
     "target_url": "http://httpbin.org/",
     "strip_listen_path": true,
     "enable_load_balancing": false,
@@ -149,7 +156,7 @@
       "extractor_config": {}
     }
   },
-  "custom_middleware_bundle": "grpc-test-api.zip",
+  "custom_middleware_bundle": "grpc-post.zip",
   "cache_options": {
     "cache_timeout": 60,
     "enable_cache": true,
