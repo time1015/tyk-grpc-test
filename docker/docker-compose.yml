@@ -53,6 +53,7 @@ services:
         hard: 40000
   grpc-server:
     container_name: grpc-server
+    build: ./java-8-runtime
     image: java-8-runtime:latest
     ports:
       - "30104:80"

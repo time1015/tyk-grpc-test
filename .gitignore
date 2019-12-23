@@ -116,5 +116,5 @@ buildNumber.properties
 # End of https://www.gitignore.io/api/java,maven,eclipse,code-java
 
 # Project-specific files
-docker/compose/tyk-gateway/nginx-root/
-docker/compose/tyk-gateway/servers/
+docker/nginx-root/
+docker/servers/
