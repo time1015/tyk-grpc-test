@@ -61,7 +61,7 @@ services:
     volumes:
       - "./servers:/opt/java/jar"
     environment:
-      - "port=80"
+      - "OPTIONS=-Dport=80"
     command: "grpc-server.jar"
     networks:
       - tyk
