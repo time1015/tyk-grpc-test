@@ -1,0 +1,8 @@
+{
+  "custom_middleware": {
+    "driver": "grpc",
+    "post": [
+      { "name": "PostHook" }
+    ]
+  }
+}
