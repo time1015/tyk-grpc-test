@@ -12,10 +12,14 @@ public class PostHook implements UnaryOperator<Object> {
 
   @Override
   public Object apply(Object request) {
-    return getStopHeader(request).map(s -> transform(request, s)).orElse(request);
+    return Optional.of(request).filter(this::hasStopHeader).map(this::transform).orElse(request);
   }
 
-  private Object transform(Object request, String stopHeader) {
+  private boolean hasStopHeader(Object request) {
+    return !request.getRequest().getHeadersOrDefault(STOP_HEADER_NAME, "").isEmpty();
+  }
+
+  private Object transform(Object request) {
     Builder builder = request.toBuilder();
 
     builder
@@ -24,16 +28,12 @@ public class PostHook implements UnaryOperator<Object> {
         ReturnOverrides
           .newBuilder()
           .setResponseCode(200)
-          .setResponseError("STOP! Message was [" + stopHeader + "]")
+          .setResponseError(
+            "STOP! Message was [" + request.getRequest().getHeadersOrDefault(STOP_HEADER_NAME, "") + "]"
+          )
           .build()
       );
 
     return builder.build();
-  }
-
-  private Optional<String> getStopHeader(Object request) {
-    return Optional
-      .ofNullable(request.getRequest().getHeadersOrDefault(STOP_HEADER_NAME, null))
-      .filter(s -> !s.isEmpty());
   }
 }

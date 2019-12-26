@@ -1,5 +1,6 @@
 package io.se7en.grpctest;
 
+import java.util.Optional;
 import java.util.function.UnaryOperator;
 
 import coprocess.CoprocessObject.Object;
@@ -12,7 +13,7 @@ public class PreHook implements UnaryOperator<Object> {
 
   @Override
   public Object apply(Object request) {
-    return hasCorrectSecretHeader(request) ? transform(request) : imATeapot(request);
+    return Optional.of(request).filter(this::hasCorrectSecretHeader).map(this::transform).orElse(imATeapot(request));
   }
 
   private boolean hasCorrectSecretHeader(Object request) {
