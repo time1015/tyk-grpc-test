@@ -1,5 +1,6 @@
 package io.se7en.grpctest;
 
+import java.net.URI;
 import java.util.Optional;
 import java.util.function.UnaryOperator;
 
@@ -23,9 +24,17 @@ public class PreHook implements UnaryOperator<Object> {
   private Object transform(Object request) {
     Builder builder = request.toBuilder();
 
-    builder.getRequestBuilder().addDeleteHeaders(SECRET_HEADER_NAME).setUrl("/anything");
+    builder
+      .getRequestBuilder()
+      .addDeleteHeaders(SECRET_HEADER_NAME)
+      .putAddParams("url", getUrl(request))
+      .setUrl("/anything");
 
     return builder.build();
+  }
+
+  private String getUrl(Object request) {
+    return URI.create("http://localhost:8080" + request.getRequest().getUrl()).getPath();
   }
 
   private Object imATeapot(Object request) {
