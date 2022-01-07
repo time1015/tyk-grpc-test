@@ -15,7 +15,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <grpc.version>1.25.0</grpc.version>
-    <proto.version>3.11.0</proto.version>
+    <proto.version>3.16.1</proto.version>
   </properties>
 
   <build>
